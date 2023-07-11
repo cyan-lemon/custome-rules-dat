@@ -267,7 +267,7 @@ jobs:
           cd ./publish || exit 1
           
       - name: Delete current release assets
-        uses: andreaswilli/delete-release-assets-action@v2.0.0
+        uses: andreaswilli/delete-release-assets-action@v3.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           tag: latest
