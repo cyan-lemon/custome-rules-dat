@@ -179,6 +179,10 @@ jobs:
         run: |
           curl -sSL https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/Lan/Lan.yaml | ${{ env.SED }} > ./community/data/Lan
 
+      - name: Add `Yahoo` data
+        run: |
+          curl -sSL https://raw.githubusercontent.com/cyan-lemon/custome-rules-dat/master/yahoo > ./community/data/Yahoo
+
       - name: Build geosite.dat file
         run: |
           cd custom || exit 1
