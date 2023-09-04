@@ -307,7 +307,7 @@ jobs:
           install -Dp ./sing-geosite/geosite-lite.db ./publish/
           install -Dp ./sing-geosite/geosite-v2fly.db ./publish/
           install -Dp ./sing-geoip/geoip.db ./publish/
-          install -Dp ./sing-geoip/geoip-lite.db ./publish/
+          install -Dp ./geoip-lite.db ./publish/
           install -p {proxy,direct,reject}-tld-list.txt ./publish/
           install -p {proxy,direct,reject}-list.txt ./publish/
           install -p hosts ./publish/
