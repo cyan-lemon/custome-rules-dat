@@ -71,7 +71,8 @@ jobs:
           curl -sSL ${CHINA_DOMAINS_URL} | sed '/^\s*#/d' | sed '/^[^\.]/ s/^/full:/' |  sed 's/^\.\([^.]*\)/\1/' > temp2-direct.txt 
           curl -sSL ${CUSTOM_DIRECT} | perl -ne '/^(domain):([^:]+)(\n$|:@.+)/ && print "$2\n"' >> temp2-direct.txt
           # 添加扫出ip为国内的域名
-          curl -sSL https://raw.githubusercontent.com/cyan-lemon/custome-rules-dat/master/cnip_domain.txt | sed 's/^full://g' > temp-cnipdomain.txt | cat temp-cnipdomain.txt temp2-direct.txt >> temp-direct.txt
+          curl -sSL https://raw.githubusercontent.com/cyan-lemon/custome-rules-dat/master/cnip_domain.txt | sed 's/^full://g' > temp-cnipdomain.txt
+          cat temp-cnipdomain.txt temp2-direct.txt >> temp-direct.txt
       - name: Get and add proxy domains into temp-proxy.txt file
         run: |
           cat ./gfwlist2dnsmasq/temp-gfwlist.txt | perl -ne '/^((?=^.{3,255})[a-zA-Z0-9][-_a-zA-Z0-9]{0,62}(\.[a-zA-Z0-9][-_a-zA-Z0-9]{0,62})+)/ && print "$1\n"' > temp-proxy.txt
